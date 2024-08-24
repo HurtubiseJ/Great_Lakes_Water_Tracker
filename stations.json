@@ -1,0 +1,91 @@
+{"Great Lakes Regions":[
+        {
+            "Region": "Detroit River",
+            "Stations" :[
+                {
+                    "Location": "Gibraltar, MI", 
+                    "Id" : "9044020"
+                }, 
+                {
+                    "Location": "Wyandotte, MI", 
+                    "Id": "9044030"
+                }, 
+                {
+                    "Location": "Fort Wayne, MI", 
+                    "Id": "9044036"
+                }, 
+                {
+                    "Location": "Windmill Point, MI", 
+                    "Id": "9044049"
+                }
+            ]
+        }, 
+        {
+            "Region": "Lake Erie", 
+            "Stations": [ 
+                {
+                    "Location": "Buffalo, NY", 
+                    "Id": "9063020"
+                },
+                {
+                    "Location": "Sturgeon Point, NY", 
+                    "Id": "9063028"
+                },
+                {
+                    "Location": "Erie, Lake Erie, PA", 
+                    "Id": "9063038"
+                },
+                {
+                    "Location": "FairPoint, OH", 
+                    "Id": "9063053"
+                },
+                {
+                    "Location": "Cleveland, OH", 
+                    "Id": "9063063"
+                },
+                {
+                    "Location": "Marblehead, OH", 
+                    "Id": "9063079"
+                },
+                {
+                    "Location": "Toledo, OH", 
+                    "Id": "9063085"
+                },
+                {
+                    "Location": "Fermi Power Plant, MI", 
+                    "Id": "9063090"
+                }
+            ]
+        }, 
+        {
+            "Region":"Lake Huron",
+            "Stations":[
+                {
+                    "Location": "Lakeport, MI ", 
+                    "Id": "9075002"
+                },
+                {
+                    "Location": "Harbor Beach, MI", 
+                    "Id": "9075014"
+                },
+                {
+                    "Location": "Essexville, MI9075035", 
+                    "Id": "9075035"
+                },
+                {
+                    "Location": "Alpena, Mi",
+                    "Id": "9075065"
+                },
+                {
+                    "Location": "Mackinaw City, MI",
+                    "Id": "9075080"
+                },
+                {
+                    "Location": "De Tour Village, MI",
+                    "Id": "9075099"
+                }
+            ] 
+            
+        }
+    ]
+}
