@@ -1,0 +1,13 @@
+
+Field	Description
+t	Time - Date and time of the observation
+v	Value - Measured water level height
+s	Sigma - Standard deviation of 1 second samples used to compute the water level height
+f	Data Flags - in order of listing:
+-- (O) Count of number of 1 second samples that fall outside a 3-sigma band about the mean
+-- (F) A flag that when set to 1 indicates that the flat tolerance limit was exceeded
+-- (R) A flag that when set to 1 indicates that the rate of change tolerance limit was exceeded
+-- (L) A flag that when set to 1 indicates that either the maximum or minimum expected water level height limit was exceeded
+q	Quality Assurance/Quality Control level
+-- p = preliminary
+-- v = verified
