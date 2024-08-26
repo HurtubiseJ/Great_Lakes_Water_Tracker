@@ -30,10 +30,11 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION; 
 
-		IF OBJECT_ID('@StationId', 'U') is null
+		IF OBJECT_ID(QUOTENAME(@StationId), 'U') is null
 			BEGIN 
+				--Create new table for station
 				DECLARE @SQL NVARCHAR(MAX) 
-				SET @SQL = 'CREATE TABLE ' + '@StationId' + ' (
+				SET @SQL = 'CREATE TABLE ' + QUOTENAME(@StationId) + ' (
 					Date DATETIME, 
 					V NVARCHAR(20), 
 					S NVARCHAR(20), 
@@ -41,11 +42,17 @@ BEGIN
 					Q NVARCHAR(5)
 				);'
 				EXEC sp_executesql @SQL, N'@StationId NVARCHAR(30)', @StationId
+				
+				--Add info to new table
+				SET @SQL = 'INSERT INTO ' + QUOTENAME(@StationId) + ' VALUES (@Date, @V, @S, @f, @Q)'
+				EXEC sp_executesql @SQL, N'@Date NVARCHAR(30), @V NVARCHAR(20), @S NVARCHAR(20), @F NVARCHAR(10), @Q NVARCHAR(5)', @Date, @V, @S, @F, @Q
+
 			END;
 		ELSE
 			BEGIN
+				--Add info to exsisting table
 				DECLARE @SQL2 NVARCHAR(MAX) 
-				SET @SQL2 = 'INSERT INTO ' + @StationId + ' VALUES (@Date, @V, @S, @f, @Q)'
+				SET @SQL2 = 'INSERT INTO ' + QUOTENAME(@StationId) + ' VALUES (@Date, @V, @S, @f, @Q)'
 				EXEC sp_executesql @SQL2, N'@Date NVARCHAR(30), @V NVARCHAR(20), @S NVARCHAR(20), @F NVARCHAR(10), @Q NVARCHAR(5)', @Date, @V, @S, @F, @Q
 			END;
 	COMMIT TRANSACTION;
