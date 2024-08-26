@@ -86,6 +86,178 @@
                 }
             ] 
             
+        }, 
+        {
+            "Region": "Lake Michigan",
+            "Stations": [
+                {
+                    "Location": "Ludington, MI",
+                    "Id":"9087023"
+                },
+                {
+                    "Location": "Holland, MI",
+                    "Id":"9087031"
+                },
+                {
+                    "Location": "Calumet Harbor, IL",
+                    "Id":"9087044"
+                },
+                {
+                    "Location": "Milwaukee, WI",
+                    "Id":"9087057"
+                },
+                {
+                    "Location": "Kewaunee, Lake Michigan, WI",
+                    "Id":"9087068"
+                },
+                {
+                    "Location": "Sturgeon Bay Canal, WI",
+                    "Id":"9087072"
+                },
+                {
+                    "Location": "Green Bay East, WI",
+                    "Id":"9087077"
+                },
+                {
+                    "Location": "Menominee, MI",
+                    "Id":"9087088"
+                }
+            ]
+        }, 
+        {
+            "Region": "Lake Ontario",
+            "Stations": [
+                {
+                    "Location": "Cape Vincent, NY",
+                    "Id":"9052000"
+                },
+                {
+                    "Location": "Oswego, NY",
+                    "Id":"9052030"
+                },
+                {
+                    "Location": "Rochester, NY",
+                    "Id":"9052058"
+                },
+                {
+                    "Location": "Olcott, NY",
+                    "Id":"9052076"
+                }
+            ]
+        },
+        {
+            "Region": "Lake St. Clair",
+            "Stations": [
+                {
+                    "Location": "St Clair Shores, MI",
+                    "Id":"9034052"
+                }
+            ]
+        },
+        {
+            "Region": "Lake Superior",
+            "Stations":[
+                {
+                    "Location": "Point Iroquois, MI",
+                    "Id":"9099004"
+                },
+                {
+                    "Location": "Marquette C.G, MI",
+                    "Id":"9099018"
+                },
+                {
+                    "Location": "Ontonagon, MI",
+                    "Id":"9099044"
+                },
+                {
+                    "Location": "Duluth, MN",
+                    "Id":"9099064"
+                },
+                {
+                    "Location": "Grand Marais, Lake Superior, MN",
+                    "Id":"9099090"
+                }
+            ]
+        },
+        {
+            "Region":"Niagara River",
+            "Stations":[
+                {
+                    "Location": "Ashland Ave, NY",
+                    "Id":"9063007"
+                },
+                {
+                    "Location": "American Falls, NY",
+                    "Id":"9063009"
+                },
+                {
+                    "Location": "Niagara Intake, NY",
+                    "Id":"9063012"
+                }
+            ]
+        },
+        {
+            "Region": "St. Clair River",
+            "Stations":[
+                {
+                    "Location": "Algonac, MI",
+                    "Id":"9014070"
+                },
+                {
+                    "Location": "St. Clair State Police, MI",
+                    "Id":"9014080"
+                },
+                {
+                    "Location": "Dry Dock, MI",
+                    "Id": "9014087"
+                },
+                {
+                    "Location": "Mouth of the Black River, MI",
+                    "Id":"9014090"
+                },
+                {
+                    "Location": "Fort Gratiot, MI",
+                    "Id":"9014098"
+                }
+            ]
+        },
+        {
+            "Region": "St. Lawrence River",
+            "Stations":[
+                {
+                    "Location": "Odgensberg, NY",
+                    "Id":"8311030"
+                },
+                {
+                    "Location": "Alexandria Bay, NY",
+                    "Id":"8311062"
+                }
+            ]
+        },
+        {
+            "Region":"St. Marys River",
+            "Stations":[
+                {
+                    "Location": "Rock Cut, MI",
+                    "Id":"9076024"
+                },
+                {
+                    "Location": "West Neebish Island, MI",
+                    "Id":"9076027"
+                },
+                {
+                    "Location": "Little Rapids, MI",
+                    "Id":"9076033"
+                },
+                {
+                    "Location": "U.S. Slip, MI",
+                    "Id":"9076060"
+                },
+                {
+                    "Location": "S.W. Peir, St Marys River, MI",
+                    "Id":"9076070"
+                }
+            ]
         }
     ]
 }

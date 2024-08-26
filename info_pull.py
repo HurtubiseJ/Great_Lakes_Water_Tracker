@@ -5,6 +5,7 @@ from requests.models import PreparedRequest
 import pandas as pd 
 import pathlib
 import pyodbc as pdb
+import schedule 
 
 #https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=hourly_height&application=NOS.COOPS.TAC.WL&begin_date=20230101&end_date=20240101&datum=IGLD&station=9075002&time_zone=LST&units=english&format=json
 BASE_URL = "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?"
@@ -16,15 +17,20 @@ UNITS = "english"
 
 stations_json_path = pathlib.Path('C:\\Users\\jhurt\\OneDrive\\Desktop\\Great_Lakes_Water_Tracker\\stations.json')
 
-def get_recent_data(station='all'):
-    pass 
+def get_station_recent_data(stations):
+    stations_id_list = stationId_by_region(load_stations_json(stations_json_path), stations)
+    for pair in stations_id_list: 
+        df = pull_recent_data_from_Id(pair[1])
+        df_to_db(pair[1], df)
+        print(f"Added {pair[1]} data to DB.")
+
 
 def stationId_by_region(station_json_content, selected_region):
     list = []
     for region in station_json_content['Great Lakes Regions']:
-        if region['Region'] == selected_region:
+        if region['Region'] == selected_region or region['Region'] in selected_region:
             for station in region['Stations']:
-                list.append({station['Location']: station['Id']})
+                list.append([station['Location'], station['Id']])
     return list
 
 def load_stations_json(path):
@@ -52,13 +58,12 @@ def call_procedure_StoreTime(StationId, Date, V, S, F, Q):
         EXEC StoreTime
             @StationId = ?, @Date = ?, @V = ?, @S = ?, @F = ?, @Q = ?
     """
-    # try:
-    print(params)
-    cursor.execute(SQL, params)
-    cursor.commit()
-    # except:
-    #     print("Failed to execute stored procedure 'StoreTime'.")
-    #     print(params)
+    try:
+        cursor.execute(SQL, params)
+        cursor.commit()
+    except:
+        print("Failed to execute stored procedure 'StoreTime'.")
+        print(params)
 
 def recent_data_params(Id):
     params = {
@@ -97,11 +102,28 @@ def df_to_db(StationId, df):
     for index, row in df.iterrows():
         call_procedure_StoreTime(StationId, row['t'], row['v'], row['s'], row['f'], row['q'])
 
+def ensure_StationsId_helper(stations):
+    stations_pairs = stationId_by_region(load_stations_json(stations_json_path), stations)
+    for pair in stations_pairs:
+        print(f"In ensure for {pair}")
+        params = (
+            pair[0], pair[1]
+        )
+        SQL = """
+            EXEC ModifyStationsIdTable 
+                @StationName = ?, @StationId = ?
+        """
+        # try:
+        cursor.execute(SQL, params)
+        cursor.commit()
+        # except:
+        #     print(f"Failed to ensure helper table for {params}")
+
+
 def main():
-    df = pull_recent_data_from_Id("9044030")
-    StationId = "9044030"
-    # print(df)
-    df_to_db(StationId, df)
+    stations = ["Detroit River", "Lake Erie", "Lake Huron", "Lake Michigan", "Lake Ontario", "Lake St. Clair", "Lake Superior", "Niagara River", "St. Clair River", "St. Lawrence River", "St. Marys River"]
+    ensure_StationsId_helper(stations)
+    get_station_recent_data(stations)
 
 if __name__ == '__main__':
     main()
