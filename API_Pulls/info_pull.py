@@ -5,7 +5,7 @@ from requests.models import PreparedRequest
 import pandas as pd 
 import pathlib
 import pyodbc as pdb
-import schedule 
+import datetime
 
 #https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=hourly_height&application=NOS.COOPS.TAC.WL&begin_date=20230101&end_date=20240101&datum=IGLD&station=9075002&time_zone=LST&units=english&format=json
 BASE_URL = "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?"
@@ -131,7 +131,9 @@ def exec_select_range(stationId, startDate, endDate):
     response = cursor.fetchall()
     if response:
         for row in response:
-            print(row)
+            print(f'Date: {row[0]}')
+            print(f"Value: {row[1]}")
+            
     else:
         print("No values found")
 
