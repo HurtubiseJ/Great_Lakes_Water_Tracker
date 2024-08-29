@@ -1,2 +1,3 @@
 # Great_Lakes_Water_Tracker
-Pulling from NOAA Great Lakes water stations. Prebuilt function and visuals for water level data.
+![NOAA Logo](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEA…fkFLIZAh2tDvC+n8cjv8DbbAojLSMq+cAAAAASUVORK5CYII=)
+An application to record, analyse, and visualise Great Lakes water levels. 

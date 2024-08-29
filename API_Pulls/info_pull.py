@@ -129,13 +129,7 @@ def exec_select_range(stationId, startDate, endDate):
     """
     cursor.execute(SQL, params)
     response = cursor.fetchall()
-    if response:
-        for row in response:
-            print(f'Date: {row[0]}')
-            print(f"Value: {row[1]}")
-            
-    else:
-        print("No values found")
+    return response if response else None
 
 def main():
     # stations = ["Detroit River", "Lake Erie", "Lake Huron", "Lake Michigan", "Lake Ontario", "Lake St. Clair", "Lake Superior", "Niagara River", "St. Clair River", "St. Lawrence River", "St. Marys River"]
